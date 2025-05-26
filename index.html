@@ -1,21 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Primates|Home</title>
     <link rel="stylesheet" href="./styles.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  </head>
+  <body>
     <header>
-
+        <nav class="fuentePrimates navbar navbar-expand-lg bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html">Primates</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                        <a class="nav-link" href="./contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="./tienda.html">Tienda</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
     <main>
+        <div id="carouselExampleSlidesOnly" class="carousel slide row" data-bs-ride="carousel">
+            <div class="carousel-inner col-12">
+                <div class="carousel-item active position-relative">
+                    <img src="./imgs/fondoPrimate1.jpeg" class="carruselImg d-block w-100 " alt="...">
+                    <img src="./imgs/logoPrimate.png" class="position-absolute top-50 start-50 translate-middle logo-img" alt="">
+                </div>
+                <div class="carousel-item position-relative">
+                    <img src="./imgs/fondoPrimate2.jpg" class="carruselImg d-block w-100" alt="...">
+                    <img src="./imgs/logoPrimate.png" class="position-absolute top-50 start-50 translate-middle logo-img" alt="">
+                </div>
+                <div class="carousel-item position-relative">
+                    <img src="./imgs/fondoPrimate3.jpeg" class="carruselImg d-block w-100" alt="...">
+                    <img src="./imgs/logoPrimate.png" class="position-absolute top-50 start-50 translate-middle logo-img " alt="">
+                </div>
+            </div>
+        </div>
 
+        <div class="">
+            <h2 class="fuentePrimates">¿Quienes Somos?</h2>
+            <p class="fuentePrimates">Somos PRIMATES. Una marca de ropa creada el 19 de noviembre del 2024 pensada para quienes buscan comodidad y estilo en cada prenda. Creemos en la importancia de sentirte seguro con lo que vestís, sin perder la conexión con tu esencia. Inspirados en los valores de familia, diseñamos ropa que une generaciones, adaptándose a cada momento de tu día. Nuestra misión es ofrecerte la confianza de vestirte bien, con piezas que combinan calidad, estilo y practicidad. Porque sabemos que vestir es más que elegir, es sentirte vos mismo.</p>
+        </div>
     </main>
-    <footer>
-        
-    </footer>
-    
-</body>
+
+
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  </body>
 </html>

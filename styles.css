@@ -1,0 +1,32 @@
+main{
+    overflow-x: hidden;
+}
+
+.carousel.slide {
+  height: 100vh; 
+}
+
+.carousel-item{
+    height: 100%;
+}
+
+.carousel-inner{
+    height: 100%;
+}
+.carruselImg {
+    height: 100%;
+    width: 100%;
+    padding-top: 56px;
+    object-fit: cover;
+    filter: grayscale(100%) opacity(50%);
+}
+
+.logo-img {
+  max-width: 300px; 
+  opacity: 0.9;     
+}
+
+.fuentePrimates{
+    font-family: 'Bebas Neue', sans-serif;
+}
+
