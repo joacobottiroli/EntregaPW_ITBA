@@ -4,6 +4,10 @@ body {
   overflow-x: hidden;
 }
 
+main{
+  margin-bottom: 20vh;
+}
+
 .navbar {
   background-color: transparent /* !i   mportant */;
   z-index: 10;
@@ -40,6 +44,11 @@ body {
   opacity: 0.9;
 }
 
+.logo-img nav{
+  max-width: 60px;
+  max-height: 60px;
+  opacity: 0.9;
+}
 
 .quienesSomos {
   padding: 2rem;
@@ -109,4 +118,19 @@ h2.fuentePrimates {
 }
 
 
+footer{
+  background-color: #6E675F;
 
+}
+
+footer a.fuentePrimates:hover {
+  color: #A3C293 ; 
+  transform: scale(1.2);
+  transition: all 0.2s ease;
+}
+
+footer a i:hover {
+  color: #A3C293 ; 
+  transform: scale(1.2);
+  transition: all 0.2s ease;
+}
