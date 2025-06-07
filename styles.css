@@ -149,7 +149,6 @@ footer a i:hover {
   overflow: hidden;
 }
 
-
 .imagenHover img {
   width: 100%;
   height: auto;
@@ -171,4 +170,19 @@ footer a i:hover {
 
 .imagenHover:hover .img2 {
   opacity: 1;
+}
+
+.imgCarrito{
+  width: 50px; 
+  height: auto; 
+  margin-right: 10px;
+}
+
+#carritoNavbar{
+  color: black;
+  transition: color 0.3s ease-in-out;
+}
+
+#carritoNavbar:hover{
+  color: #A3C293;
 }
