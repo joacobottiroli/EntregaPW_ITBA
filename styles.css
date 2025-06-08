@@ -186,3 +186,150 @@ footer a i:hover {
 #carritoNavbar:hover{
   color: #A3C293;
 }
+
+.navbar-toggler {
+  background-color: transparent !important; 
+  border: none !important;                
+  box-shadow: none !important;         
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
+@media (max-width: 576px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #6E675F;
+    z-index: 999;
+    padding-top: 80px;
+    text-align: center;
+  }
+
+  .navbar-collapse .nav-link {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .navbar-toggler {
+    z-index: 1001;
+  }
+
+  .quienesSomos {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .quienesSomos h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .quienesSomos p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .quienesSomos .col-md-6 {
+    width: 100%;
+    justify-content: center !important;
+    margin-bottom: 1rem;
+  }
+
+  .fotosNosotros .card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .fotosNosotros .row.g-0 {
+    flex-direction: column !important;
+  }
+
+  .fotosNosotros img {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .fotosNosotros .card-body {
+    padding: 1rem;
+  }
+}
+
+
+@media (min-width: 577px) and (max-width: 991px) {
+  .navbar .nav-link {
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  .fotosNosotros .card {
+  max-height: none;
+  height: auto;
+}
+
+.fotosNosotros .col-md-4 {
+  height: auto;
+}
+
+.fotosNosotros img {
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+
+  .quienesSomos {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 2rem;
+  }
+
+  .quienesSomos h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .quienesSomos p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .quienesSomos .col-md-6 {
+    width: 100%;
+    justify-content: center !important;
+    margin-bottom: 1rem;
+  }
+
+  .fotosNosotros .card {
+    margin: 2rem auto;
+    max-width: 90%;
+  }
+
+  .fotosNosotros .row.g-0 {
+    flex-direction: row !important;
+    text-align: start;
+  }
+
+  .fotosNosotros img {
+    max-width: 100%;
+    height: auto;
+  }
+  .fotosNosotros .col-md-4 {
+    max-height: 260px;
+  }
+}

@@ -1,15 +1,19 @@
-var carrito = [];
+var carrito = []
 
 document.addEventListener("DOMContentLoaded", function(){
   eventListeners()
   activarSeleccionUnicaTalles()
   activarFiltroProductos()
   recuperarCarrito()
-  var modalCarrito = document.getElementById('modalCarrito');
+  respuestaContacto()
+  let modalCarrito = document.getElementById('modalCarrito')
 
-  modalCarrito.addEventListener('shown.bs.modal', function () {
+  if (modalCarrito){
+    modalCarrito.addEventListener('shown.bs.modal', function () {
     mostrarCarritoEnModal()
   })
+  }
+  
 
   document.getElementById("newsletter").addEventListener("click", function(){
     alert("Te suscribiste de manera exitosa a nuestro newsletter!")
@@ -18,7 +22,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function eventListeners(){
   let listaProductos=document.getElementById("seccionProductos")
-  listaProductos.addEventListener("click", dataElemento)
+  if (listaProductos){
+      listaProductos.addEventListener("click", dataElemento)
+  }
+
 }
 
 function dataElemento(e){
@@ -66,8 +73,8 @@ function seleccionData(producto, id){
 
 function activarSeleccionUnicaTalles() {
   var botonesTalle = document.querySelectorAll('.tallePrenda')
-
-  for (var i = 0; i < botonesTalle.length; i++) {
+  if (botonesTalle){
+    for (var i = 0; i < botonesTalle.length; i++) {
     botonesTalle[i].addEventListener('click', function() {
       var contenedor = this.parentElement
       var botonesGrupo = contenedor.querySelectorAll('.tallePrenda')
@@ -79,13 +86,16 @@ function activarSeleccionUnicaTalles() {
       this.classList.add('active')
     })
   }
+  }
+  
 }
 
 function activarFiltroProductos() {
   let filtroBotones = document.querySelectorAll('.filtro-btn')
   let productos = document.querySelectorAll('.producto')
 
-  for (let i = 0; i < filtroBotones.length; i++) {
+  if (filtroBotones && productos){
+    for (let i = 0; i < filtroBotones.length; i++) {
     filtroBotones[i].addEventListener('click', function () {
       let filtro = this.id
 
@@ -105,65 +115,71 @@ function activarFiltroProductos() {
       }
     })
   }
+  }
+  
 }
 
 function actualizarCarritoNavbar() {
-  var total = 0;
-  var cantidad = 0;
+  var total = 0
+  var cantidad = 0
 
   for (var i = 0; i < carrito.length; i++) {
-    total += carrito[i].precio * carrito[i].cantidad;
-    cantidad += carrito[i].cantidad;
+    total += carrito[i].precio * carrito[i].cantidad
+    cantidad += carrito[i].cantidad
   }
 
-  var carritoTexto = "🛒 (" + cantidad + ") - $" + total;
-  var elementoCarrito = document.getElementById("carritoNavbar");
+  var carritoTexto = "🛒 (" + cantidad + ") - $" + total
+  var elementoCarrito = document.getElementById("carritoNavbar")
   if (elementoCarrito) {
-    elementoCarrito.textContent = carritoTexto;
+    elementoCarrito.textContent = carritoTexto
   }
 }
 
 function mostrarCarritoEnModal() {
-  var contenedor = document.getElementById("modalCarritoContenido");
+  var contenedor = document.getElementById("modalCarritoContenido")
+  if (contenedor){
+    if (carrito.length === 0) {
+      contenedor.innerHTML = "<p class='text-muted'>El carrito está vacío.</p>"
+      return
+    }
+    
+    var html = "<ul class='list-group'>"
 
-  if (carrito.length === 0) {
-    contenedor.innerHTML = "<p class='text-muted'>El carrito está vacío.</p>";
-    return;
+    for (var i = 0; i < carrito.length; i++) {
+      var producto = carrito[i]
+
+      html += "<li class='list-group-item d-flex align-items-center justify-content-between'>"
+      html += "<div class='d-flex align-items-center'>"
+      html += "<img src='" + producto.img + "' class='imgCarrito'>"
+      html += "<span>" + producto.titulo + " - " + producto.talle + "</span>"
+      html += "</div>"
+
+      html += "<div>"
+      html += "<button class='btn btn-sm btn-outline-dark' onclick='modificarCantidad(" + i + ", -1)'>-</button> "
+      html += "<span class='mx-2'>" + producto.cantidad + "</span>"
+      html += "<button class='btn btn-sm btn-outline-dark' onclick='modificarCantidad(" + i + ", 1)'>+</button> "
+      html += "<button class='btn btn-sm btn-outline-dark' onclick='eliminarProducto("+i+",1)'>🗑️</button>"
+      html += "<span class='ms-2'>$" + (producto.precio * producto.cantidad) + "</span>"
+      html += "</div>"
+
+      html += "</li>"
+    }
+
+    html += "</ul>"
+
+      contenedor.innerHTML = html
+    }
+
   }
+  
 
-  var html = "<ul class='list-group'>";
-
-for (var i = 0; i < carrito.length; i++) {
-  var producto = carrito[i];
-
-  html += "<li class='list-group-item d-flex align-items-center justify-content-between'>"
-  html += "<div class='d-flex align-items-center'>"
-  html += "<img src='" + producto.img + "' class='imgCarrito'>"
-  html += "<span>" + producto.titulo + " - " + producto.talle + "</span>"
-  html += "</div>"
-
-  html += "<div>"
-  html += "<button class='btn btn-sm btn-outline-dark' onclick='modificarCantidad(" + i + ", -1)'>-</button> "
-  html += "<span class='mx-2'>" + producto.cantidad + "</span>"
-  html += "<button class='btn btn-sm btn-outline-dark' onclick='modificarCantidad(" + i + ", 1)'>+</button> "
-  html += "<button class='btn btn-sm btn-outline-dark' onclick='eliminarProducto("+i+",1)'>🗑️</button>"
-  html += "<span class='ms-2'>$" + (producto.precio * producto.cantidad) + "</span>"
-  html += "</div>"
-
-  html += "</li>"
-}
-
-html += "</ul>"
-
-  contenedor.innerHTML = html;
-}
 
 function modificarCantidad(indice, cambio) {
   if (carrito[indice]) {
-    carrito[indice].cantidad += cambio;
+    carrito[indice].cantidad += cambio
 
     if (carrito[indice].cantidad <= 0) {
-      carrito.splice(indice, 1); 
+      carrito.splice(indice, 1)
     }
 
     actualizarCarritoNavbar()
@@ -183,13 +199,13 @@ function eliminarProducto(indice) {
 
 function finalizarCompra() {
   if (carrito.length === 0) {
-    alert("Tu carrito está vacío.");
-    return;
+    alert("Tu carrito está vacío.")
+    return
   }
 
-  alert("¡Gracias por tu compra!");
+  alert("¡Gracias por tu compra!")
 
-  carrito = [];
+  carrito = []
 
   actualizarCarritoNavbar()
   mostrarCarritoEnModal()
@@ -198,14 +214,26 @@ function finalizarCompra() {
 }
 
 function guardarCarrito() {
-  localStorage.setItem("carritoPrimates", JSON.stringify(carrito));
+  localStorage.setItem("carritoPrimates", JSON.stringify(carrito))
 }
 
 function recuperarCarrito() {
-  var carritoGuardado = localStorage.getItem("carritoPrimates");
+  let carritoGuardado = localStorage.getItem("carritoPrimates")
 
   if (carritoGuardado) {
-    carrito = JSON.parse(carritoGuardado);
-    actualizarCarritoNavbar();
+    carrito = JSON.parse(carritoGuardado)
+    actualizarCarritoNavbar()
   }
+}
+
+function respuestaContacto(){
+  let formulario = document.querySelector("form")
+  if (formulario){
+    formulario.addEventListener("submit", function (e) {
+      e.preventDefault()
+      alert("Gracias por tu mensaje. Nos pondremos en contacto pronto.")
+      formulario.reset()
+    })
+  }
+    
 }
