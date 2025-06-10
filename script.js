@@ -143,23 +143,22 @@ function mostrarCarritoEnModal() {
       return
     }
     
-    var html = "<ul class='list-group'>"
+    var html = "<ul class='list-group list-group-flush'>" 
 
     for (var i = 0; i < carrito.length; i++) {
-      var producto = carrito[i]
-
-      html += "<li class='list-group-item d-flex align-items-center justify-content-between'>"
-      html += "<div class='d-flex align-items-center'>"
-      html += "<img src='" + producto.img + "' class='imgCarrito'>"
-      html += "<span>" + producto.titulo + " - " + producto.talle + "</span>"
+      var producto = carrito[i]      
+      html += "<li class='list-group-item carrito-producto'>"
+      html += "<img src='" + producto.img + "' class='img-fluid rounded' style='max-width: 60px;'>"
+      html += "<div class='carrito-producto-info'>"
+      html += "<p class='fw-bold mb-0'>" + producto.titulo + "</p>"
+      html += "<p class='small mb-0'>Talle: " + producto.talle + "</p>"
+      html += "<p class='small'>$" + (producto.precio * producto.cantidad) + "</p>"
       html += "</div>"
-
-      html += "<div>"
-      html += "<button class='btn btn-sm btn-outline-dark' onclick='modificarCantidad(" + i + ", -1)'>-</button> "
+      html += "<div class='carrito-controles'>"
+      html += "<button class='btn btn-sm btn-outline-dark' onclick='modificarCantidad(" + i + ", -1)'>-</button>"
       html += "<span class='mx-2'>" + producto.cantidad + "</span>"
-      html += "<button class='btn btn-sm btn-outline-dark' onclick='modificarCantidad(" + i + ", 1)'>+</button> "
-      html += "<button class='btn btn-sm btn-outline-dark' onclick='eliminarProducto("+i+",1)'>🗑️</button>"
-      html += "<span class='ms-2'>$" + (producto.precio * producto.cantidad) + "</span>"
+      html += "<button class='btn btn-sm btn-outline-dark' onclick='modificarCantidad(" + i + ", 1)'>+</button>"
+      html += "<button class='btn btn-sm btn-outline-dark' onclick='eliminarProducto("+i+")'>🗑️</button>" 
       html += "</div>"
 
       html += "</li>"
@@ -167,11 +166,9 @@ function mostrarCarritoEnModal() {
 
     html += "</ul>"
 
-      contenedor.innerHTML = html
-    }
-
+    contenedor.innerHTML = html
   }
-  
+}
 
 
 function modificarCantidad(indice, cambio) {

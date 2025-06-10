@@ -5,15 +5,15 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   max-width: 100%;
+  overflow-x: hidden;
 }
 
-main{
+main {
   margin-bottom: 20vh;
 }
 
-header{
+header {
   margin-bottom: 5rem;
 }
 
@@ -35,7 +35,7 @@ header{
 }
 
 .navbar-nav .nav-link:hover {
-  color: #A3C293 ; 
+  color: #A3C293; 
 }
 
 .carousel.slide {
@@ -53,21 +53,10 @@ header{
   opacity: 0.9;
 }
 
-.logo-img nav{
+.logo-img nav {
   max-width: 60px;
   max-height: 60px;
   opacity: 0.9;
-}
-
-.quienesSomos {
-  padding: 2rem;
-  background-color:#FFFF;
-  border-radius: 0.5rem;
-}
-
-h2.fuentePrimates {
-  font-size: 2.5rem;
-  margin-top: 5rem;
 }
 
 .fuentePrimates {
@@ -76,12 +65,14 @@ h2.fuentePrimates {
 }
 
 .quienesSomos {
+  padding: 2rem;
+  background-color: #FFFF;
+  border-radius: 0.5rem;
   min-height: 80vh;
   height: auto;
-  background-color: #FFFF;
 }
 
-.quienesSomos h2{
+.quienesSomos h2 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 5rem; 
   text-transform: uppercase;
@@ -90,21 +81,17 @@ h2.fuentePrimates {
   line-height: 0.9;
 }
 
-.quienesSomos p{
+.quienesSomos p {
   font-size: 1.6rem;  
   color: #333;
   text-align: justify;
   max-width: 90%;
-  margin-top: 5rem;
+  margin: 5rem auto 0; 
 }
 
-.fotosNosotros{
+.fotosNosotros {
   padding: 2rem;
   margin-top: 5rem;
-}
-
-.fotosNosotros .row {
-  height: 100%;
 }
 
 .fotosNosotros img {
@@ -123,31 +110,23 @@ h2.fuentePrimates {
   transform: scale(1.05);
 }
 
-
-footer{
+footer {
   background-color: #6E675F;
-
 }
 
-footer a.fuentePrimates:hover {
-  color: #A3C293 ; 
+footer a.fuentePrimates:hover, footer a i:hover {
+  color: #A3C293; 
   transform: scale(1.2);
   transition: all 0.2s ease;
 }
 
-footer a i:hover {
-  color: #A3C293 ; 
-  transform: scale(1.2);
-  transition: all 0.2s ease;
-}
-
-.card{
+.card {
   border: none !important;
   max-width: 100%;
   margin: auto;
 }
 
-.card-img-top{
+.card-img-top {
   height: auto;
   aspect-ratio: 1/1;
   object-fit: cover;
@@ -162,7 +141,7 @@ footer a i:hover {
   gap: 0.5rem;
 }
 
-.imagenHover{
+.imagenHover {
   position: relative;
   overflow: hidden;
 }
@@ -173,7 +152,6 @@ footer a i:hover {
   display: block;
   transition: opacity 0.4s ease;
 }
-
 
 .imagenHover .img2 {
   position: absolute;
@@ -190,18 +168,18 @@ footer a i:hover {
   opacity: 1;
 }
 
-.imgCarrito{
+.imgCarrito {
   width: 50px; 
   height: auto; 
   margin-right: 10px;
 }
 
-#carritoNavbar{
+#carritoNavbar {
   color: black;
   transition: color 0.3s ease-in-out;
 }
 
-#carritoNavbar:hover{
+#carritoNavbar:hover {
   color: #A3C293;
 }
 
@@ -215,7 +193,36 @@ footer a i:hover {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-@media (max-width: 992px){
+.carrito-producto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.carrito-producto .img-fluid {
+    max-width: 60px;
+}
+
+.carrito-producto-info {
+    flex-grow: 1;
+    font-size: 0.9rem;
+}
+.carrito-producto-info p {
+    margin: 0;
+}
+
+.carrito-controles {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+
+@media (max-width: 992px) {
   .navbar-collapse {
     position: fixed;
     top: 0;
@@ -231,6 +238,7 @@ footer a i:hover {
   .navbar-collapse .nav-link {
     font-size: 1.5rem;
     margin: 1rem 0;
+    color: black; 
   }
 
   .navbar-toggler {
@@ -239,6 +247,8 @@ footer a i:hover {
     .fotoEquipo {
     max-width: 250px;
     aspect-ratio: 3/4;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .quienesSomos .col-md-6 {
@@ -249,11 +259,24 @@ footer a i:hover {
     margin-bottom: 2rem;
   }
 
+  .quienesSomos h2 {
+    font-size: 4rem; 
+  }
+  .quienesSomos p {
+    font-size: 1.4rem;
+    text-align: center;
+  }
 }
 
-
-
 @media (max-width: 576px) {
+  .carousel.slide, .carruselImg {
+    height: 60vh;
+  }
+  
+  .logo-img {
+    max-width: 200px;
+  }
+
   .quienesSomos {
     flex-direction: column;
     text-align: center;
@@ -261,11 +284,12 @@ footer a i:hover {
   }
 
   .quienesSomos h2 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     margin-bottom: 1rem;
   }
   .quienesSomos p {
     font-size: 1.2rem;
     margin-bottom: 1rem;
+    margin-top: 2rem;
   }
 }
